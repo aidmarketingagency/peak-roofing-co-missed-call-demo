@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aidmarketingagency.github.io/peak-roofing-co-missed-call-demo/sitemap.xml
