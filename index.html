@@ -430,7 +430,7 @@
       <div class="cta-inner">
         <h2>See it running on <em>your</em> number.</h2>
         <p>Fifteen minutes with Ryan. He will walk through exactly what you saw above, live on Peak Roofing Co's line, and give you a straight answer on whether it is worth doing.</p>
-        <a class="cta-btn" href="https://paymegpt.com/p/KqXvRWYi" target="_blank" rel="noopener">
+        <a class="cta-btn" href="https://aidmarketingagency.github.io/aid-discovery-call/" target="_blank" rel="noopener">
           Book the walkthrough
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
         </a>
@@ -443,7 +443,7 @@
     <p class="quietline">"Whoever answers first wins the job. This is how Peak Roofing Co answers first, every time."</p>
     <div class="foot">
       <div>Put together by Ryan McNally at AID Marketing Agency</div>
-      <div><a href="https://paymegpt.com/p/KqXvRWYi" target="_blank" rel="noopener">paymegpt.com/p/KqXvRWYi</a></div>
+      <div><a href="https://aidmarketingagency.github.io/aid-discovery-call/" target="_blank" rel="noopener">aidmarketingagency.github.io/aid-discovery-call/</a></div>
     </div>
   </footer>
 
@@ -452,5 +452,82 @@
 
 
   <script src="script.js"></script>
+
+<script src="https://paymegpt.com/widget.js" data-widget="54722168" async></script>
+<script data-aid-widget-boost>
+(function(){
+  var WID='54722168';
+  var IMG='https://paymegpt.com/api/files/avatar/widget_avatar_mcp_widget_54722168_1784002747499.png';
+  function mobile(){return window.innerWidth<769;}
+  var full=false, fsBtn=null;
+  function container(){return document.getElementById('ultra-fast-widget-container-'+WID);}
+  function bubble(){return document.getElementById('ultra-fast-widget-bubble-'+WID);}
+  function isOpen(){var c=container();return !!(c&&getComputedStyle(c).display!=='none');}
+  /* Mobile: chat opens as a bottom sheet, not a fullscreen takeover. The expand
+     button toggles true fullscreen. Inline !important beats the widget's own CSS. */
+  function sheet(c){
+    if(!mobile()||full){unsheet(c);return;}
+    var s=c.style;
+    s.setProperty('top','auto','important');s.setProperty('bottom','10px','important');
+    s.setProperty('left','8px','important');s.setProperty('right','8px','important');
+    s.setProperty('width','auto','important');s.setProperty('height','72vh','important');
+    s.setProperty('max-height','72vh','important');s.setProperty('border-radius','16px','important');
+    sheeted=true;
+  }
+  var sheeted=false;
+  function unsheet(c){
+    if(!sheeted)return;
+    ['top','bottom','left','right','width','height','max-height','border-radius'].forEach(function(p){c.style.removeProperty(p);});
+    sheeted=false;
+  }
+  function ensureFsBtn(c){
+    if(!mobile()){if(fsBtn&&fsBtn.parentNode){fsBtn.parentNode.removeChild(fsBtn);fsBtn=null;}return;}
+    if(fsBtn&&c.contains(fsBtn))return;
+    fsBtn=document.createElement('button');
+    fsBtn.type='button';fsBtn.setAttribute('aria-label','Toggle full screen');
+    fsBtn.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M8 3H3v5"/><path d="M16 3h5v5"/><path d="M8 21H3v-5"/><path d="M16 21h5v-5"/></svg>';
+    fsBtn.style.cssText='position:absolute;top:9px;left:10px;z-index:2147483647;width:34px;height:34px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:9px;cursor:pointer;';
+    fsBtn.addEventListener('click',function(e){
+      e.stopPropagation();full=!full;var c2=container();
+      if(c2){if(full){unsheet(c2);}else{sheet(c2);}}
+    });
+    c.appendChild(fsBtn);
+  }
+  function sync(){
+    var b=bubble();
+    if(!b)return;
+    var open=isOpen();
+    if(open){try{sessionStorage.setItem('aidWidgetAutoOpened','1');}catch(e){}}
+    var img=b.querySelector('img[data-aid-icon]');
+    if(open){if(img){img.remove();b.style.background='';}}
+    else if(!img){
+      img=document.createElement('img');
+      img.src=IMG;img.alt='';img.setAttribute('data-aid-icon','');
+      img.style.cssText='width:100%;height:100%;object-fit:cover;border-radius:50%;position:absolute;top:0;left:0;pointer-events:none;';
+      b.style.background='#0D0D0F';
+      b.appendChild(img);
+    }
+    var c=container();
+    if(c){
+      if(open){ensureFsBtn(c);sheet(c);}
+      else{full=false;unsheet(c);}
+    }
+  }
+  var armed=false;
+  function autoOpen(){
+    if(armed)return;
+    var b=bubble();
+    if(!b)return;
+    armed=true;
+    try{if(sessionStorage.getItem('aidWidgetAutoOpened'))return;}catch(e){}
+    setTimeout(function(){
+      try{if(sessionStorage.getItem('aidWidgetAutoOpened'))return;}catch(e){}
+      try{sessionStorage.setItem('aidWidgetAutoOpened','1');}catch(e){}
+      if(!isOpen())b.click();
+    },20000);
+  }
+  setInterval(function(){sync();autoOpen();},400);
+})();
+</script>
 </body>
 </html>
