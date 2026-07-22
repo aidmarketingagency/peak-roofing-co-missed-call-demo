@@ -100,3 +100,53 @@
     statIO.observe(statEl);
   }
 })();
+// ── 7/16 sequencer contract override (patched 2026-07-21) ──
+// play at ~15% visible; re-arm ONLY after full viewport exit; replay hard-resets.
+;(function(){
+  // Locate the SMS thread element (try common IDs in priority order)
+  var threadIds = ['thread','thread-mobile','thread-desktop','sms-thread','sms-thread-desktop','demo-thread'];
+  var threadEl = null;
+  for (var _i = 0; _i < threadIds.length; _i++){
+    threadEl = document.getElementById(threadIds[_i]);
+    if (threadEl) break;
+  }
+  if (!threadEl) return; // no thread found — bail
+
+  // Locate replay buttons (use the FIRST one if multiple)
+  var replayBtns = Array.prototype.slice.call(document.querySelectorAll('[id*="replay"],[data-replay]'));
+
+  function hardReset(){
+    // Simulate a replay button click to let the existing implementation reset+play.
+    // If no replay button exists, try firing a custom event the sequencer may listen for.
+    if (replayBtns.length > 0){ replayBtns[0].click(); }
+  }
+
+  var _armed = true;
+  function _autoplay(){
+    if (!_armed) return;
+    _armed = false;
+    hardReset();
+  }
+
+  // playIO: fires when >= 15% of the thread is visible
+  var playIO = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting && e.intersectionRatio >= 0.15){ _autoplay(); }
+    });
+  }, { threshold: 0.18 });
+  playIO.observe(threadEl);
+
+  // rearmIO: fires when thread fully exits the viewport (threshold:0 + !isIntersecting)
+  var rearmIO = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (!e.isIntersecting){ _armed = true; }
+    });
+  }, { threshold: 0 });
+  rearmIO.observe(threadEl);
+
+  // Check already-visible case at init time
+  var _rect = threadEl.getBoundingClientRect();
+  var _vh = window.innerHeight || document.documentElement.clientHeight;
+  var _vis = Math.min(_rect.bottom, _vh) - Math.max(_rect.top, 0);
+  if (_rect.height > 0 && _vis / _rect.height >= 0.15){ _autoplay(); }
+})();
