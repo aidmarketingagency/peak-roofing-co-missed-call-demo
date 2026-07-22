@@ -206,7 +206,7 @@
     d.style.cssText = 'position:fixed;right:20px;bottom:98px;z-index:999998;max-width:250px;background:#141419;color:#F4F4F5;padding:13px 32px 13px 16px;border-radius:16px;border:1px solid rgba(201,168,76,.45);box-shadow:0 12px 28px rgba(0,0,0,.5);font:500 14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;cursor:pointer;opacity:0;transform:translateY(10px);transition:opacity .5s ease,transform .5s ease;';
     var txt = document.createElement('p');
     txt.style.cssText = 'margin:0;';
-    txt.textContent = 'Free demo, your Agent talks and speaks! 🎙️';
+    txt.textContent = "Give your customers AN OFFER they can't refuse! 🎙️";
     var x = document.createElement('button');
     x.type = 'button';
     x.setAttribute('aria-label', 'Dismiss');
